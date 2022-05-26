@@ -77,7 +77,7 @@ import { appBarClasses } from '@mui/material';
       fontSize: "1.1rem",
       height: "31px",
       // right:"-25px",
-      borderRadius: "12px",
+      borderRadius: "20px",
       backgroundColor: "white",
       "& .MuiSvgIcon-root": {
         marginRight: "8px",
@@ -202,13 +202,8 @@ const Host = () => {
     <Header />
     
     <Paper elevation={3} className="paper" style={{ margin: "15px" }}>
-    <div className="head1">
-      <div className="row" style={{ marginTop: "-14px" }}>
-        <h3 className="col">
-          <strong style={{margin:'10px'}}>Quiz</strong><strong>Puzzle</strong>
-        </h3>
-      </div>
-    </div>
+    <strong style={{margin:'10px'}}>Quiz</strong><strong>Puzzle</strong>
+
       {loading ? (
         <div className={classes.loading}>
           <CircularProgress />{" "}

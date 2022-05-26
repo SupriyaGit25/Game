@@ -127,29 +127,35 @@ main {
   width: 150px;
   height: 70px;
 }
-.header{
-  display: flex;
+.header-main{
+  display: grid;
+  grid-template-columns: 4fr 4fr;
   border: 1px gray;
   background-color: aliceblue;
   justify-content: space-between;
   width: 80vw;
   padding: 20px;
 }
-.Head1{
-  width: auto;
+.head1-title{
+  width: 100px;
 }
-.Head2{  
+.head2-content{  
   display: flex;
   flex-direction: row;
-  width: auto;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 .profile{
-  padding: 20px;
-  border: 1px solid black;
-  border-radius: 56px;
-  width: 10px;
+  padding: 5px;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 44px;
 }
-
+.row{
+  display: flex;
+  flex-direction: row;
+}
 
 
 
