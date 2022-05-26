@@ -18,7 +18,7 @@ import QuizCompleted from './pages/QuizCompleted';
 import Rewards from './pages/Rewards';
 import Setting from './pages/Setting';
 import Subscription from './pages/Subscription';
-import User from './pages/User';
+import User from './pages/User/User';
 import SideBar from "./components/Sidebar/SideBar";
 function App() {
   return (

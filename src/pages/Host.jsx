@@ -58,11 +58,7 @@ import { appBarClasses } from '@mui/material';
     },
     btnadd: {
       right: "5px",
-<<<<<<< HEAD
       // height: "30px",
-=======
-      height: "30px",
->>>>>>> 60da7934ec02b978844059a271fa42c24e841472
       backgroundColor: "#3598CB",
       fontSize: "14px",
       color: "white",
@@ -190,7 +186,6 @@ import { appBarClasses } from '@mui/material';
         textAlign: "center",
         zIndex: 0,
       },
-<<<<<<< HEAD
       {
         id: "action",
         label: "Action",
@@ -201,8 +196,6 @@ import { appBarClasses } from '@mui/material';
         textAlign: "center",
         zIndex: 0,
       },
-=======
->>>>>>> 60da7934ec02b978844059a271fa42c24e841472
   ];
 const Host = () => {
   const [loading, setLoading] = useState(false);
@@ -215,7 +208,6 @@ const Host = () => {
       };
   return (
     <>
-<<<<<<< HEAD
     
     <div className="head1">
       <div className="row" >
@@ -223,27 +215,6 @@ const Host = () => {
       </div>
     </div>
     <Paper elevation={3} className="paper" style={{ margin: "auto", padding:"5px" }}>
-=======
-    <Header />
-    <div className="head1">
-      <div className="row" style={{ marginTop: "-14px" }}>
-        <h3 className="col">
-          <strong>Host</strong>
-        </h3>
-        <InputBase
-          className={`${classes.searchInput} md-4`}
-          placeholder="Search"
-          //onChange={(e) => handleSearch(e)}
-          value={search}
-        />
-        <Button onClick={onAddHost} size="small" className={classes.btnadd}>
-          Add Host
-        </Button>
-        {/* <Header className={`${classes.fontcolor}`}></Header> */}
-      </div>
-    </div>
-    <Paper elevation={3} className="paper" style={{ marginTop: "-7px" }}>
->>>>>>> 60da7934ec02b978844059a271fa42c24e841472
       {loading ? (
         <div className={classes.loading}>
           <CircularProgress />{" "}
@@ -255,15 +226,12 @@ const Host = () => {
           className={classes.head}
         >
           <TableHead>
-<<<<<<< HEAD
             <div><span>Overview</span>
             <Button onClick={onAddHost} size="small">
           Add Host
         </Button>
             </div>
             <div>
-=======
->>>>>>> 60da7934ec02b978844059a271fa42c24e841472
             {columns.map((column) => (
               <TableCell
                 className={classes.root}
@@ -282,26 +250,7 @@ const Host = () => {
                 <center>{column.label}</center>
               </TableCell>
             ))}
-<<<<<<< HEAD
             </div>
-=======
-
-            {/* {user_permission_list.change_assignment === true ||
-            user_permission_list.delete_assignment === true ? ( */}
-              <TableCell
-                style={{
-                  fontWeight: "bold",
-                  width: "25%",
-                  backgroundColor: "white",
-                  color: "#2d3667",
-                }}
-              >
-                <b style={{ paddingLeft: "40px" }}>Action</b>
-              </TableCell>
-            {/* ) : (
-              ""
-            )} */}
->>>>>>> 60da7934ec02b978844059a271fa42c24e841472
           </TableHead>
           <TableBody>
             {/* {tech.results && tech.results.length > 0 ? (
