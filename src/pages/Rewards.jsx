@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function Rewards() {
   return (
-    <div>Rewards</div>
+    <>
+    <Header/>
+    <div className='title'>Rewards</div>
+    </>
   )
 }
 

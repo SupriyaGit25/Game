@@ -1,18 +1,14 @@
-import React from 'react'
+import React from "react";
 
 function Header() {
   return (
-    <div className='Header-container'>
-      <div className='Header-title'>
-      <h3>All Games</h3>
+    <div className="header">
+      <div className="head1">MyGames</div>
+      <div className="head2">
+        <input type="text" placeholder="search"></input>
       </div>
-      <div className='Header-prifile'>
-      <h3>My Games</h3>
-      </div>
-     
-      </div>
-
-  )
+    </div>
+  );
 }
 
-export default Header
+export default Header;

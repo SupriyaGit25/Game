@@ -1,5 +1,15 @@
-const Dashboard = () => {
-  return <div className="title"> Dashboard</div>;
-};
+import React from 'react'
+import Header from '../components/Sidebar/Header'
 
-export default Dashboard;
+function Dashboard() {
+  return (
+    <>
+    <Header />
+    <div className='title'>
+      Dashboard
+    </div>
+    </>
+  )
+}
+
+export default Dashboard

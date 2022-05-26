@@ -279,7 +279,7 @@ const SideBar = ({ children }) => {
           </section>
         </motion.div>
 
-        {/* <main>{children}</main> */}
+        <main>{children}</main>
       </div>
     </>
   );

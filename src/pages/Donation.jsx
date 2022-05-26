@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function Donation() {
   return (
-    <div>Donation</div>
+    <>
+    <Header/>
+    <div className='title'>Donation</div>
+    </>
   )
 }
 

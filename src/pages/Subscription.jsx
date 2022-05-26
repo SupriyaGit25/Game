@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function Subscription() {
   return (
-    <div>Subscription</div>
+    <>
+    <Header/>
+    <div className='title'>Subscription</div>
+    </>
   )
 }
 

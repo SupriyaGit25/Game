@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function Master() {
   return (
-    <div>Master</div>
+    <>
+    <Header/>
+    <div className='title'>Master</div>
+    </>
   )
 }
 

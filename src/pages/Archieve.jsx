@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function Archieve() {
   return (
-    <div>Archieve</div>
+    <>
+    <Header/>
+    <div className='title'>Archieve</div>
+    </>
   )
 }
 
