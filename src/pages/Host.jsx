@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import "../App.css"
+import Header from '../components/Sidebar/Header';
 import {
     makeStyles,
     InputBase,
@@ -197,6 +198,7 @@ const Host = () => {
       };
   return (
     <>
+    <Header />
     <div className="head1">
       <div className="row" style={{ marginTop: "-14px" }}>
         <h3 className="col">

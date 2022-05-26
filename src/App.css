@@ -7,7 +7,7 @@
 
 .main-container {
   display: flex;
-  background-color: darkgray;
+  /* background-color: darkgray; */
 }
 main {
   padding: 0px;
@@ -138,8 +138,16 @@ main {
 .Head1{
   width: auto;
 }
-.Head2{
+.Head2{  
+  display: flex;
+  flex-direction: row;
   width: auto;
+}
+.profile{
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 56px;
+  width: 10px;
 }
 
 
