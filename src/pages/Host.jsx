@@ -58,7 +58,7 @@ import { appBarClasses } from '@mui/material';
     },
     btnadd: {
       right: "5px",
-      height: "30px",
+      // height: "30px",
       backgroundColor: "#3598CB",
       fontSize: "14px",
       color: "white",
@@ -186,6 +186,16 @@ import { appBarClasses } from '@mui/material';
         textAlign: "center",
         zIndex: 0,
       },
+      {
+        id: "action",
+        label: "Action",
+        maxWidth: "20%",
+        fontWeight: "bold",
+        backgroundColor: "white",
+        color: "#2d3667",
+        textAlign: "center",
+        zIndex: 0,
+      },
   ];
 const Host = () => {
   const [loading, setLoading] = useState(false);
@@ -198,25 +208,13 @@ const Host = () => {
       };
   return (
     <>
-    <Header />
+    
     <div className="head1">
-      <div className="row" style={{ marginTop: "-14px" }}>
-        <h3 className="col">
-          <strong>Host</strong>
-        </h3>
-        <InputBase
-          className={`${classes.searchInput} md-4`}
-          placeholder="Search"
-          //onChange={(e) => handleSearch(e)}
-          value={search}
-        />
-        <Button onClick={onAddHost} size="small" className={classes.btnadd}>
-          Add Host
-        </Button>
-        {/* <Header className={`${classes.fontcolor}`}></Header> */}
+      <div className="row" >
+        <Header className={`${classes.fontcolor}`}></Header>
       </div>
     </div>
-    <Paper elevation={3} className="paper" style={{ marginTop: "-7px" }}>
+    <Paper elevation={3} className="paper" style={{ margin: "auto", padding:"5px" }}>
       {loading ? (
         <div className={classes.loading}>
           <CircularProgress />{" "}
@@ -228,6 +226,12 @@ const Host = () => {
           className={classes.head}
         >
           <TableHead>
+            <div><span>Overview</span>
+            <Button onClick={onAddHost} size="small">
+          Add Host
+        </Button>
+            </div>
+            <div>
             {columns.map((column) => (
               <TableCell
                 className={classes.root}
@@ -246,22 +250,7 @@ const Host = () => {
                 <center>{column.label}</center>
               </TableCell>
             ))}
-
-            {/* {user_permission_list.change_assignment === true ||
-            user_permission_list.delete_assignment === true ? ( */}
-              <TableCell
-                style={{
-                  fontWeight: "bold",
-                  width: "25%",
-                  backgroundColor: "white",
-                  color: "#2d3667",
-                }}
-              >
-                <b style={{ paddingLeft: "40px" }}>Action</b>
-              </TableCell>
-            {/* ) : (
-              ""
-            )} */}
+            </div>
           </TableHead>
           <TableBody>
             {/* {tech.results && tech.results.length > 0 ? (
