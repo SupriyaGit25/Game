@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import Header from '../components/Sidebar/Header'
-=======
 import React,{useState,useEffect} from 'react'
 import "../App.css"
 import {
@@ -195,18 +191,12 @@ const Host = () => {
     const [addHost, setAddHost] = useState(false);
     const [search, setSearch] = useState("");
     const classes = useStyle();
->>>>>>> 06e257aed1a1ae41b559f7f9e2c908ee829e9331
 
     const onAddHost = () => {
         setAddHost(!addHost);
       };
   return (
     <>
-<<<<<<< HEAD
-    <Header/>
-    <div className='title'>Host</div>
-    </>
-=======
     <div className="head1">
       <div className="row" style={{ marginTop: "-14px" }}>
         <h3 className="col">
@@ -420,7 +410,6 @@ const Host = () => {
       ""
     )} */}
   </>
->>>>>>> 06e257aed1a1ae41b559f7f9e2c908ee829e9331
   )
 }
 
