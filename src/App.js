@@ -1,7 +1,5 @@
 import "./App.css";
-// import SideLayout from "./components/Sidebar/SideLayout";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ParentHome from "./components/Sidebar/ParentHome";
 import AddPuzzle from './pages/AddPuzzle';
 import AddQuiz from './pages/AddQuiz';
 import Archieve from './pages/Archieve';
@@ -21,12 +19,11 @@ import Rewards from './pages/Rewards';
 import Setting from './pages/Setting';
 import Subscription from './pages/Subscription';
 import User from './pages/User';
-import './components/ParentHome.css'
 import SideBar from "./components/Sidebar/SideBar";
 function App() {
   return (
     <Router>
-      <ParentHome>
+      <SideBar>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/master" element={<Master/>} />
@@ -49,7 +46,7 @@ function App() {
           <Route path="/setting" element={<Setting />} />
           <Route path="*" element={<> not found</>} />
         </Routes>
-      </ParentHome>
+      </SideBar>
     </Router>
   );
 }

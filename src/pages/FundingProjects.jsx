@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function FundingProjects() {
   return (
-    <div>FundingProjects</div>
+    <>
+    <Header/>
+    <div className='title'>FundingProjects</div>
+    </>
   )
 }
 

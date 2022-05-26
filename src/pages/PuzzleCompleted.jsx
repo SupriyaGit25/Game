@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function PuzzleCompleted() {
   return (
-    <div>PuzzleCompleted</div>
+    <>
+    <Header/>
+    <div className='title'>PuzzleCompleted</div>
+    </>
   )
 }
 

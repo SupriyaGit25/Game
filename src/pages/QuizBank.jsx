@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Sidebar/Header'
 
 function QuizBank() {
   return (
-    <div>QuizBank</div>
+    <>
+    <Header/>
+    <div className='title'>QuizBank</div>
+    </>
   )
 }
 
