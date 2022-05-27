@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import "../App.css"
-import Header from '../components/Sidebar/Header';
 import {
     makeStyles,
     InputBase,
@@ -71,13 +70,14 @@ import { appBarClasses } from '@mui/material';
       opacity: "0.9",
       right: "25px",
       paddingLeft: "10px",
+      border: '1px solid gray',
       // width: "20%",
       // padding: "0px 8px",
       justifyContent: "end",
       fontSize: "1.1rem",
       height: "31px",
       // right:"-25px",
-      borderRadius: "12px",
+      borderRadius: "20px",
       backgroundColor: "white",
       "& .MuiSvgIcon-root": {
         marginRight: "8px",
@@ -199,16 +199,10 @@ const Host = () => {
       };
   return (
     <>
-    <Header />
     
     <Paper elevation={3} className="paper" style={{ margin: "15px" }}>
-    <div className="head1">
-      <div className="row" style={{ marginTop: "-14px" }}>
-        <h3 className="col">
-          <strong style={{margin:'10px'}}>Quiz</strong><strong>Puzzle</strong>
-        </h3>
-      </div>
-    </div>
+    <strong style={{margin:'10px', fontWeight:'500', padding:'10px'}}>Quiz</strong><strong style={{margin:'10px', fontWeight:'500',padding:'10px'}}>Puzzle</strong>
+
       {loading ? (
         <div className={classes.loading}>
           <CircularProgress />{" "}
