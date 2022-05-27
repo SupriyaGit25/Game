@@ -189,7 +189,6 @@ const Host = () => {
   };
   return (
     <>
-            <Header />
             <div className="head1">
                 <div className="row" style={{ marginTop: "-14px" }}>
                     <h3 className="col">
