@@ -19,6 +19,7 @@ import Rewards from './pages/Rewards';
 import Setting from './pages/Setting';
 import Subscription from './pages/Subscription';
 import User from './pages/User/User';
+import AddUser from "./pages/User/AddUser1";
 import SideBar from "./components/Sidebar/SideBar";
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/master" element={<Master/>} />
           <Route path="/host" element={<Host/>} />
           <Route path="/master/user" element={<User />} />
+          <Route path="/master/user/adduser" element={<AddUser />} />
           <Route path="/allgames" element={<AllGames />} />
           <Route path="/puzzle" element={<Puzzle />} />
           <Route path="/puzzle/addpuzzle" element={<AddPuzzle />} />
