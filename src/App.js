@@ -6,7 +6,7 @@ import Archieve from './pages/Archieve';
 import Dashboard from './pages/Dashboard';
 import Donation from './pages/Donation';
 import FundingProjects from './pages/FundingProjects';
-import Host from './pages/Host';
+import Host from './pages/Host/Host';
 import Master from './pages/Master';
 import AllGames from './pages/AllGames';
 import Puzzle from './pages/Puzzle';
