@@ -1,407 +1,331 @@
-import React,{useState,useEffect} from 'react'
-import "../App.css"
-import {
-    makeStyles,
-    InputBase,
-    Toolbar,
-    Paper,
-    Button,
-    TableBody,
-    TableRow,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TablePagination,
-    CircularProgress,
-    Table,
-  } from "@material-ui/core";
-  import {
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    Col,
-    Row,
-  } from "reactstrap";
-  import Pagination from "@material-ui/lab/Pagination";
+import React, { useState, useEffect } from 'react';
+import AddUser from '../pages/User/AddUser';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import CancelIcon from '@mui/icons-material/Cancel';
+import Switch from '@mui/material/Switch';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import Stack from '@mui/material/Stack';
+import {makeStyles,InputBase,Toolbar, Paper,Grid, Button,TableBody,TableRow,TableCell,
+        TableContainer,TableHead,TablePagination,CircularProgress,Table} from "@material-ui/core";
+import {Form,FormGroup,Label,Input,Modal,ModalHeader,ModalBody,ModalFooter,Col,Row} from "reactstrap";
+import Pagination from "@material-ui/lab/Pagination";
 import { appBarClasses } from '@mui/material';
-  const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles((theme) => ({
     iconstyle: {
-      padding: "1px",
+        padding: "1px",
     },
     toolbarStyle: {
-      marginBottom: "30px",
+        marginBottom: "30px",
     },
     header1: {
-      borderRadius: "18px",
-      boxShadow: "none",
-      overflow: "auto",
+        borderRadius: "18px",
+        boxShadow: "none",
+        overflow: "auto",
     },
     technologypaper: {
-      marginTop: "-10px",
-      boxShadow: "none",
-      borderRadius: "18px",
-      height: "570px",
+        marginTop: "-10px",
+        boxShadow: "none",
+        borderRadius: "18px",
+        height: "570px",
     },
     header1: {
-      width: "100%",
-      borderRadius: "18px",
-      boxShadow: "none",
-      overflow: "hidden",
-      height: "480px",
-      overflow: "auto",
+        width: "100%",
+        borderRadius: "18px",
+        boxShadow: "none",
+        overflow: "hidden",
+        height: "480px",
+        overflow: "auto",
     },
     btnadd: {
-      right: "5px",
-      height: "30px",
-      backgroundColor: "#3598CB",
-      fontSize: "14px",
-      color: "white",
-      "&:hover": {
+        right: "5px",
+        height: "30px",
         backgroundColor: "#3598CB",
-      },
+        fontSize: "14px",
+        color: "white",
+        "&:hover": {
+            backgroundColor: "#3598CB",
+        },
     },
     searchInput: {
-      border:'1px solid black',
-      opacity: "0.9",
-      right: "25px",
-      paddingLeft: "10px",
-      border: '1px solid gray',
-      // width: "20%",
-      // padding: "0px 8px",
-      justifyContent: "end",
-      fontSize: "1.1rem",
-      height: "31px",
-      // right:"-25px",
-      borderRadius: "20px",
-      backgroundColor: "white",
-      "& .MuiSvgIcon-root": {
-        marginRight: "8px",
-      },
+        opacity: "0.9",
+        right: "25px",
+        paddingLeft: "10px",
+        // width: "20%",
+        // padding: "0px 8px",
+        justifyContent: "end",
+        fontSize: "1.1rem",
+        height: "31px",
+        // right:"-25px",
+        borderRadius: "12px",
+        backgroundColor: "white",
+        "& .MuiSvgIcon-root": {
+            marginRight: "8px",
+        },
     },
     head: {
-      "&  .MuiTableCell-stickyHeader": {
-        backgroundColor: "white",
-      },
+        "&  .MuiTableCell-stickyHeader": {
+            backgroundColor: "white",
+        },
     },
-  
+
     container: {
-      overflow: "Scroll",
+        overflow: "Scroll",
     },
     LinkStyle: {
-      color: "black !important",
-      "&:hover": {
-        textDecoration: "none",
-      },
+        color: "black !important",
+        "&:hover": {
+            textDecoration: "none",
+        },
     },
     tablename: {
-      margin: "-8px",
+        margin: "-8px",
     },
     fontcolor: {
-      color: "#2d3667",
-      padding: "5px",
-      height: "30px",
-      borderBottom: "1px solid rgb(224 224 224)",
+        color: "#2d3667",
+        padding: "5px",
+        height: "30px",
+        borderBottom: "1px solid rgb(224 224 224)",
     },
-  
+
     loading: {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
+        position: "absolute",
+        top: "50%",
+        left: "50%",
     },
     nodata: {
-      position: "absolute",
-      marginTop: 165,
-      marginLeft: 420,
+        position: "absolute",
+        marginTop: 165,
+        marginLeft: 420,
     },
     action: {
-      color: "#2d3667",
-      // paddingTop: "20px",
-      textAlign: "center",
-      borderBottom: "1px solid rgb(224 224 224)",
+        color: "#2d3667",
+        // paddingTop: "20px",
+        textAlign: "center",
+        borderBottom: "1px solid rgb(224 224 224)",
     },
     btnedit: {
-      color: "#00a8ff",
-      // marginRight: "10px",
-      // borderRight : "1px solid ",
-      // borderRadiusRight: "0"
+        color: "#00a8ff",
+        // marginRight: "10px",
+        // borderRight : "1px solid ",
+        // borderRadiusRight: "0"
     },
     btndelete: {
-      color: "#00a8ff",
-      // borderLeft : "1px solid "
+        color: "#00a8ff",
+        // borderLeft : "1px solid "
     },
-  }));
-  const columns = [
+}));
+const columns = [
     {
-      id: "name",
-      label: "Name",
-      textAlign: "center",
-      fontWeight: "bold",
-      backgroundColor: "white",
-      color: "#2d3667",
-      zIndex: 0,
-      maxWidth: "20%",
-    },
-    {
-      id: "nickname",
-      label: "Nick Name ",
-      textAlign: "center",
-      fontWeight: "bold",
-      backgroundColor: "white",
-      color: "#2d3667",
-      zIndex: 0,
-      maxWidth: "20%",
+        id: "players",
+        label: "Players",
+        textAlign: "center",
+        fontWeight: "bold",
+        backgroundColor: "white",
+        color: "#2d3667",
+        zIndex: 0,
+        maxWidth: "20%",
     },
     {
-      id: "contactnumber",
-      label: "Contact Number",
-      maxWidth: "20%",
-      fontWeight: "bold",
-      backgroundColor: "white",
-      color: "#2d3667",
-      textAlign: "center",
-      zIndex: 0,
-    },
-    
-    {
-      id: "userid",
-      label: "User ID",
-      maxWidth: "20%",
-      fontWeight: "bold",
-      backgroundColor: "white",
-      color: "#2d3667",
-      textAlign: "center",
-      zIndex: 0,
+        id: "host",
+        label: "Host",
+        textAlign: "center",
+        fontWeight: "bold",
+        backgroundColor: "white",
+        color: "#2d3667",
+        zIndex: 0,
+        maxWidth: "20%",
     },
     {
-        id: "status",
-        label: "Status",
+        id: "userid",
+        label: "User ID",
         maxWidth: "20%",
         fontWeight: "bold",
         backgroundColor: "white",
         color: "#2d3667",
         textAlign: "center",
         zIndex: 0,
-      },
-  ];
-const Host = () => {
-  const [loading, setLoading] = useState(false);
-    const [addHost, setAddHost] = useState(false);
-    const [search, setSearch] = useState("");
+    },
+    {
+        id: "score",
+        label: "Score",
+        maxWidth: "20%",
+        fontWeight: "bold",
+        backgroundColor: "white",
+        color: "#2d3667",
+        textAlign: "center",
+        zIndex: 0,
+    },
+    {
+      id: "reward",
+      label: "Reward",
+      maxWidth: "20%",
+      fontWeight: "bold",
+      backgroundColor: "white",
+      color: "#2d3667",
+      textAlign: "center",
+      zIndex: 0,
+  },
+];
+const User = () => {
+    const [loading, setLoading] = useState(false);
     const classes = useStyle();
 
-    const onAddHost = () => {
-        setAddHost(!addHost);
-      };
-  return (
-    <>
-    
-    <Paper elevation={3} className="paper" style={{ margin: "15px" }}>
-    <strong style={{margin:'10px', fontWeight:'500', padding:'10px'}}>Quiz</strong><strong style={{margin:'10px', fontWeight:'500',padding:'10px'}}>Puzzle</strong>
+    //Switch
+    const label = { inputProps: { 'aria-label': 'Switch demo' } };
+    //Switch
 
-      {loading ? (
-        <div className={classes.loading}>
-          <CircularProgress />{" "}
-        </div>
-      ) : (<>
-        
-        <Table
-          stickyHeader
-          aria-label="sticky table"
-          className={classes.head}
-        >
-          
-          <TableHead>
-            {columns.map((column) => (
-              <TableCell
-                className={classes.root}
-                key={column.id}
-                align={column.align}
-                style={{
-                  maxWidth: column.maxWidth,
-                  fontWeight: column.fontWeight,
-                  backgroundColor: column.backgroundColor,
-                  color: column.color,
-                  zIndex: column.zIndex,
-                  textAlign: "center",
-                  width: "25%",
-                }}
-              >
-                <center>{column.label}</center>
-              </TableCell>
-            ))}
 
-            {/* {user_permission_list.change_assignment === true ||
-            user_permission_list.delete_assignment === true ? ( */}
-              <TableCell
-                style={{
-                  fontWeight: "bold",
-                  width: "25%",
-                  backgroundColor: "white",
-                  color: "#2d3667",
-                }}
-              >
-                <b style={{ paddingLeft: "40px" }}>Action</b>
-              </TableCell>
-            {/* ) : (
-              ""
-            )} */}
-          </TableHead>
-          <TableBody>
-            {/* {tech.results && tech.results.length > 0 ? (
-              tech.results.map((element, index) => (
-                <TableRow key={index}>
-                  <td className={classes.fontcolor}>
-                    <center>
-                      {element.project_name.charAt(0).toUpperCase() +
-                        element.project_name.slice(1).toLowerCase()}
-                    </center>
-                  </td>
-                  <td className={classes.fontcolor}>
-                    <center>
-                      {element.project_manager_name}
-                    </center>
-                  </td>
-                  <td className={classes.fontcolor}>
-                    <center>{dateFormat(element.start_date,"d-mmm-yy")}</center>
-                  </td>
-                  <td className={classes.fontcolor}>
-                    <center>{dateFormat(element.end_date,"d-mmm-yy")}</center>
-                  </td>
-                  <td className={`${classes.action} d-flex `}>
-                    <center>
-                      {user_permission_list.change_assignment === true ||
-                      user_permission_list.delete_assignment === true ? (
-                        <>
-                          <Button
-                            style={{ paddingLeft: "25px" }}
-                            className={classes.btnedit}
-                            onClick={() => {
-                              setEditData({
-                                id: element.id,
-                                project_name: element.project_name,
-                                start_date: element.start_date,
-                                end_date: element.end_date,
-                                project_manager_name:element.project_manager_name,
-                              });
-                              onEdit();
-                            }}
-                          >
-                            Edit
-                          </Button>
-                          <span style={{ color: "#00a8ff" }}>|</span>
-                          <Button
-                            className={classes.btndelete}
-                            onClick={() => {
-                              setDeleteData({
-                                id: element.id,
-                                technology: element.project_name,
-                              });
-                              onDelete();
-                            }}
-                          >
-                            Delete
-                          </Button>
-                        </>
-                      ) : (
-                        ""
-                      )}
-                    </center>
-                  </td>
-                </TableRow>
-              ))
-            ) : (
-              <div className={classes.nodata}>
-                {" "}
-                <p>No Data Found</p>
-              </div>
-            )} */}
-          </TableBody>
-        </Table>
+    // Sample
+
+    function createData(players, host, userid, score, reward) {
+        return { players, host, userid, score, reward };
+    }
+
+    const rows = [
+        createData('John Smith', 'ABC INDIA LTD' , 9898098980, '', 'GSTIN7563736'),
+        createData('John Smith', 'ABC INDIA LTD' , 9898098980, '', 'GSTIN7563736'),
+        createData('John Smith', 'ABC INDIA LTD', 9898098980, '', 'GSTIN7563736'),
+        createData('John Smith', 'ABC INDIA LTD', 9898098980, '', 'GSTIN7563736'),
+        createData('John Smith', 'ABC INDIA LTD', 9898098980, '', 'GSTIN7563736'),
+    ];
+
+    // Sample
+
+
+    return (
+        <>
+            <Paper elevation={3} className="paper" style={{ margin: "20px 20px" }}>
+            <strong style={{margin:'20px 10px', fontWeight:'500', padding:'10px'}}>Overview</strong>
+                {loading ? (
+                    <div className={classes.loading}>
+                        <CircularProgress />{" "}
+                    </div>
+                ) : (
+                    <Table
+                        stickyHeader
+                        aria-label="sticky table"
+                        className={classes.head}
+                    >
+                        <TableHead>
+                            {columns.map((column) => (
+                                <TableCell
+                                    className={classes.root}
+                                    key={column.id}
+                                    align={column.align}
+                                    style={{
+                                        maxWidth: column.maxWidth,
+                                        fontWeight: column.fontWeight,
+                                        backgroundColor: column.backgroundColor,
+                                        color: column.color,
+                                        zIndex: column.zIndex,
+                                        textAlign: "center",
+                                        width: "25%",
+                                    }}
+                                >
+                                    <center>{column.label}</center>
+                                </TableCell>
+                            ))}
+                            <TableCell
+                                style={{
+                                    fontWeight: "bold",
+                                    width: "25%",
+                                    backgroundColor: "white",
+                                    color: "#2d3667",
+                                }}
+                            >
+                                <b style={{ paddingRight: "90px" }}>Action</b>
+                            </TableCell>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => (
+                                <TableRow
+                                    key={row.name}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row" style={{
+
+                                        width: "25%",
+                                        backgroundColor: "white",
+                                        color: "#2d3667",
+
+                                    }}>
+                                        <center>{row.players}</center>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row" style={{
+                                        width: "25%",
+                                        backgroundColor: "white",
+                                        color: "#2d3667",
+
+                                    }}>
+                                        <center>{row.host}</center>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row" style={{
+                                        width: "25%",
+                                        backgroundColor: "white",
+                                        color: "#2d3667",
+
+                                    }}>
+                                        <center>{row.userid}</center>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row" style={{
+                                        width: "25%",
+                                        backgroundColor: "white",
+                                        color: "#2d3667",
+
+                                    }}>
+                                        <center>
+                                            <VisibilityIcon {...label} defaultChecked style={{color: 'skyblue'}} />
+                                        </center>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row" style={{
+                                        width: "35%",
+                                        backgroundColor: "white",
+                                        color: "#2d3667",
+
+                                    }}>
+                                       <center>
+                                            <></>
+                                        </center>
+
+                                    </TableCell>
+
+
+                                    <TableCell component="th" scope="row" style={{
+                                        width: "30%",
+                                        backgroundColor: "white",
+                                        color: "#2d3667",
+
+                                    }}>
+                                        <center>
+                                            {
+                                                <div className='Main' style={{ display: "flex", gap: "12px", cursor: "pointer"}}>
+                                                    <div className='bnt1'>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 31.031 31.062">
+                                                            <g id="Group_269" data-name="Group 269"  transform="translate(-1177.471 -568)">
+                                                                <path id="Path_97" data-name="Path 97" d="M108.917,93.249a2.2,2.2,0,0,1-2.223,2.191H89.1a2.2,2.2,0,0,1-2.223-2.191V75.593A2.219,2.219,0,0,1,89.1,73.4h8.992l2.845-2.845H89.1A5.073,5.073,0,0,0,84,75.593V93.249a5.079,5.079,0,0,0,5.1,5.068h17.624a5.079,5.079,0,0,0,5.1-5.068V81.38l-2.845,2.845v9.024Z" transform="translate(1093.469 500.745)" fill="#431cc4" />
+                                                                <path id="Path_98" data-name="Path 98" d="M236.692,18.643,232.7,14.687A2.311,2.311,0,0,0,231.1,14a2.223,2.223,0,0,0-1.6.654L214.785,29.368a2.261,2.261,0,0,0-.654,1.471l-.262,4.218a2.337,2.337,0,0,0,.654,1.766,2.277,2.277,0,0,0,1.6.654h.131l4.251-.261a2.261,2.261,0,0,0,1.471-.654L236.659,21.88a2.277,2.277,0,0,0,.654-1.6,2.143,2.143,0,0,0-.621-1.635ZM227.308,20.9l3.172,3.172-7.357,7.324-3.172-3.172Zm-7.193,13.5-3.368.2.2-3.368.948-.948,3.172,3.172Zm12.359-12.392-3.139-3.139,1.766-1.766,3.172,3.172Z" transform="translate(971.187 554)" fill="#431cc4" />
+                                                            </g>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </center>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                )}
+                {/* <div className='Pagination_Main' style={{ justifyContent: "space-between" }}>
+                    <Stack spacing={2}>
+                        <Pagination count={10} variant="outlined" shape="rounded" />
+                    </Stack>
+                </div> */}
+            </Paper>
+
         </>
-      )}
-    </Paper>
-
-    {/* <Paper
-      elevation={3}
-      style={{
-        borderRadius: "18px",
-        marginTop: "5px",
-      }}
-    >
-      <Row
-        className="d-flex"
-        style={{ justifyContent: "center", alignItems: "center" }}
-      >
-        <Col sm={3}></Col>
-        <Col sm={5}>
-          <Pagination
-            component="div"
-            count={Math.ceil(tech.count / pageSize)}
-            page={page}
-            onChange={handlePaginations}
-            siblingCount={0}
-            boundaryCount={2}
-          />
-        </Col>
-
-        <Col
-          sm={4}
-          style={{
-            paddingTop: "15px",
-            paddingRight: "40px",
-            display: "flex",
-            justifyContent: "end",
-          }}
-        >
-          <p className="mr-1">Items per Page:</p>
-          <select
-            onChange={handlePageSizeChange}
-            value={pageSize}
-            style={{
-              border: "none",
-              heigth: "20px",
-              alignSelf: "flex-start",
-            }}
-          >
-            {pageSizes.map((size) => (
-              <option key={size} value={size}>
-                {size}
-              </option>
-            ))}
-          </select>
-        </Col>
-      </Row>
-    </Paper> */}
-
-    {/* {addtask ? (
-      <AddProjectMasterModal
-        openAdd={addtask}
-        addToggle={onAddTask}
-        afterAdd={afterAdd}
-        setaddreload={setaddreload}
-      />
-    ) : edittask ? (
-      <EditProjectMasterModal
-        openEdit={edittask}
-        editToggle={onEdit}
-        editData={editData}
-      />
-    ) : deleteTask ? (
-      <DeleteProjectMasterModal
-        openDelete={deleteTask}
-        deletetoggle={onDelete}
-        deleteData={deleteData}
-      />
-    ) : (
-      ""
-    )} */}
-  </>
-  )
+    )
 }
 
-export default Host
+export default User;
