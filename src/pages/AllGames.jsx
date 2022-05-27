@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import "../App.css"
-import Header from '../components/Sidebar/Header';
 import {
     makeStyles,
     InputBase,
@@ -71,6 +70,7 @@ import { appBarClasses } from '@mui/material';
       opacity: "0.9",
       right: "25px",
       paddingLeft: "10px",
+      border: '1px solid gray',
       // width: "20%",
       // padding: "0px 8px",
       justifyContent: "end",
@@ -199,10 +199,9 @@ const Host = () => {
       };
   return (
     <>
-    <Header />
     
     <Paper elevation={3} className="paper" style={{ margin: "15px" }}>
-    <strong style={{margin:'10px'}}>Quiz</strong><strong>Puzzle</strong>
+    <strong style={{margin:'10px', fontWeight:'500', padding:'10px'}}>Quiz</strong><strong style={{margin:'10px', fontWeight:'500',padding:'10px'}}>Puzzle</strong>
 
       {loading ? (
         <div className={classes.loading}>

@@ -9,13 +9,15 @@ import Nimap from "../../Images/Nimap.png";
 
 const routes = [
   {
-    path: "/dashboard",
+    path: "/",
     name: "Dashboard",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
+        color="black"
+        background-color="black"
         fill="currentColor"
         class="bi bi-app"
         viewBox="0 0 16 16"
@@ -33,8 +35,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -43,7 +45,7 @@ const routes = [
     ),
     subRoutes: [
       {
-        path: "/host",
+        path: "/master/host",
         name: "Host",
         icon: (
           <svg
@@ -51,8 +53,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -69,8 +71,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -89,8 +91,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -107,8 +109,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -126,8 +128,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -144,8 +146,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -162,8 +164,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -182,8 +184,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -200,8 +202,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -218,8 +220,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -236,8 +238,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -254,8 +256,8 @@ const routes = [
             width="16"
             height="16"
             fill="currentColor"
-            color="blue"
-            background-color="blue"
+            color="black"
+            background-color="black"
             class="bi bi-app"
             viewBox="0 0 16 16"
           >
@@ -274,8 +276,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -292,8 +294,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -310,8 +312,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -328,8 +330,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -347,8 +349,8 @@ const routes = [
         width="16"
         height="16"
         fill="currentColor"
-        color="blue"
-        background-color="blue"
+        color="black"
+        background-color="black"
         class="bi bi-app"
         viewBox="0 0 16 16"
       >
@@ -441,7 +443,7 @@ const SideBar = ({ children }) => {
             </AnimatePresence>
 
             <div className="bars">
-              <MdDoubleArrow className="right-double-arrow" onClick={toggle} />
+              <MdDoubleArrow style={{color:'black'}} onClick={toggle} />
             </div>
           </div>
           {/* <div className="search">

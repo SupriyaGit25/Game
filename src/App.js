@@ -22,6 +22,7 @@ import User from './pages/User/User';
 import AddUser from "./pages/User/AddUser1";
 import SideBar from "./components/Sidebar/SideBar";
 function App() {
+  const isLoggedIn = true;
   return (
     <Router>
       <SideBar>
