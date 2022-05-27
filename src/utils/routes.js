@@ -35,7 +35,7 @@ const routes = [
         component: () => <AddUser />
     },
     {
-        path : '/master/user/allgames',
+        path : '/allgames',
         component: () => <AllGames />
     },
     {
