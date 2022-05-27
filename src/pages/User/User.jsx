@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from "../../components/Sidebar/Header";
-
 import "../../App.css";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -8,10 +6,6 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import { Link } from 'react-router-dom';
-
-
-
-
 import {
     makeStyles,
     InputBase,
@@ -68,32 +62,6 @@ const useStyle = makeStyles((theme) => ({
         height: "480px",
         overflow: "auto",
     },
-    // btnadd: {
-    //     right: "5px",
-    //     height: "30px",
-    //     backgroundColor: "#3598CB",
-    //     fontSize: "14px",
-    //     color: "white",
-    //     "&:hover": {
-    //         backgroundColor: "#3598CB",
-    //     },
-    // },
-    // searchInput: {
-    //     opacity: "0.9",
-    //     right: "25px",
-    //     paddingLeft: "10px",
-    //     // width: "20%",
-    //     // padding: "0px 8px",
-    //     justifyContent: "end",
-    //     fontSize: "1.1rem",
-    //     height: "31px",
-    //     // right:"-25px",
-    //     borderRadius: "12px",
-    //     backgroundColor: "white",
-    //     "& .MuiSvgIcon-root": {
-    //         marginRight: "8px",
-    //     },
-    // },
     head: {
         "&  .MuiTableCell-stickyHeader": {
             backgroundColor: "white",
@@ -137,13 +105,9 @@ const useStyle = makeStyles((theme) => ({
     },
     btnedit: {
         color: "#00a8ff",
-        // marginRight: "10px",
-        // borderRight : "1px solid ",
-        // borderRadiusRight: "0"
     },
     btndelete: {
         color: "#00a8ff",
-        // borderLeft : "1px solid "
     },
 }));
 const columns = [
@@ -212,13 +176,11 @@ const User = () => {
     ];
 
     // Sample
-
-
     return (
         <>
-            <Header />
             <div className='User_Screen' >
-                <Paper elevation={3} className="paper" style={{ marginTop: "10px", border: "1px solid blue", borderRadius: "25px" }}>
+
+            <Paper elevation={3} className="paper" style={{ margin: "20px 20px", border: "1px solid blue", borderRadius: "25px" }}>
                     <div className="head1">
                         <div className="row" style={{ margin: "20px 30px" }}>
                             <h3 className="col">

@@ -1,119 +1,144 @@
-import React, { useState, useEffect } from 'react';
-import AddUser from '../pages/User/AddUser';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import CancelIcon from '@mui/icons-material/Cancel';
-import Switch from '@mui/material/Switch';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import Stack from '@mui/material/Stack';
-import {makeStyles,InputBase,Toolbar, Paper,Grid, Button,TableBody,TableRow,TableCell,
-        TableContainer,TableHead,TablePagination,CircularProgress,Table} from "@material-ui/core";
-import {Form,FormGroup,Label,Input,Modal,ModalHeader,ModalBody,ModalFooter,Col,Row} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import AddUser from "../pages/User/AddUser";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import CancelIcon from "@mui/icons-material/Cancel";
+import Switch from "@mui/material/Switch";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import Stack from "@mui/material/Stack";
+import {
+  makeStyles,
+  InputBase,
+  Toolbar,
+  Paper,
+  Grid,
+  Button,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  CircularProgress,
+  Table,
+} from "@material-ui/core";
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Col,
+  Row,
+} from "reactstrap";
 import Pagination from "@material-ui/lab/Pagination";
-import { appBarClasses } from '@mui/material';
+import { appBarClasses } from "@mui/material";
 const useStyle = makeStyles((theme) => ({
-    iconstyle: {
-        padding: "1px",
+  iconstyle: {
+    padding: "1px",
+  },
+  toolbarStyle: {
+    marginBottom: "30px",
+  },
+  header1: {
+    borderRadius: "18px",
+    boxShadow: "none",
+    overflow: "auto",
+  },
+  technologypaper: {
+    marginTop: "-10px",
+    boxShadow: "none",
+    borderRadius: "18px",
+    height: "570px",
+  },
+  header1: {
+    width: "100%",
+    borderRadius: "18px",
+    boxShadow: "none",
+    overflow: "hidden",
+    height: "480px",
+    overflow: "auto",
+  },
+  btnadd: {
+    right: "5px",
+    height: "30px",
+    backgroundColor: "#3598CB",
+    fontSize: "14px",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#3598CB",
     },
-    toolbarStyle: {
-        marginBottom: "30px",
+  },
+  searchInput: {
+    opacity: "0.9",
+    right: "25px",
+    paddingLeft: "10px",
+    // width: "20%",
+    // padding: "0px 8px",
+    justifyContent: "end",
+    fontSize: "1.1rem",
+    height: "31px",
+    // right:"-25px",
+    borderRadius: "12px",
+    backgroundColor: "white",
+    "& .MuiSvgIcon-root": {
+      marginRight: "8px",
     },
-    header1: {
-        borderRadius: "18px",
-        boxShadow: "none",
-        overflow: "auto",
+  },
+  head: {
+    "&  .MuiTableCell-stickyHeader": {
+      backgroundColor: "white",
     },
-    technologypaper: {
-        marginTop: "-10px",
-        boxShadow: "none",
-        borderRadius: "18px",
-        height: "570px",
-    },
-    header1: {
-        width: "100%",
-        borderRadius: "18px",
-        boxShadow: "none",
-        overflow: "hidden",
-        height: "480px",
-        overflow: "auto",
-    },
-    btnadd: {
-        right: "5px",
-        height: "30px",
-        backgroundColor: "#3598CB",
-        fontSize: "14px",
-        color: "white",
-        "&:hover": {
-            backgroundColor: "#3598CB",
-        },
-    },
-    searchInput: {
-        opacity: "0.9",
-        right: "25px",
-        paddingLeft: "10px",
-        // width: "20%",
-        // padding: "0px 8px",
-        justifyContent: "end",
-        fontSize: "1.1rem",
-        height: "31px",
-        // right:"-25px",
-        borderRadius: "12px",
-        backgroundColor: "white",
-        "& .MuiSvgIcon-root": {
-            marginRight: "8px",
-        },
-    },
-    head: {
-        "&  .MuiTableCell-stickyHeader": {
-            backgroundColor: "white",
-        },
-    },
+  },
 
-    container: {
-        overflow: "Scroll",
+  container: {
+    overflow: "Scroll",
+  },
+  LinkStyle: {
+    color: "black !important",
+    "&:hover": {
+      textDecoration: "none",
     },
-    LinkStyle: {
-        color: "black !important",
-        "&:hover": {
-            textDecoration: "none",
-        },
-    },
-    tablename: {
-        margin: "-8px",
-    },
-    fontcolor: {
-        color: "#2d3667",
-        padding: "5px",
-        height: "30px",
-        borderBottom: "1px solid rgb(224 224 224)",
-    },
+  },
+  tablename: {
+    margin: "-8px",
+  },
+  fontcolor: {
+    color: "#2d3667",
+    padding: "5px",
+    height: "30px",
+    borderBottom: "1px solid rgb(224 224 224)",
+  },
 
-    loading: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-    },
-    nodata: {
-        position: "absolute",
-        marginTop: 165,
-        marginLeft: 420,
-    },
-    action: {
-        color: "#2d3667",
-        // paddingTop: "20px",
-        textAlign: "center",
-        borderBottom: "1px solid rgb(224 224 224)",
-    },
-    btnedit: {
-        color: "#00a8ff",
-        // marginRight: "10px",
-        // borderRight : "1px solid ",
-        // borderRadiusRight: "0"
-    },
-    btndelete: {
-        color: "#00a8ff",
-        // borderLeft : "1px solid "
-    },
+  loading: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+  },
+  nodata: {
+    position: "absolute",
+    marginTop: 165,
+    marginLeft: 420,
+  },
+  action: {
+    color: "#2d3667",
+    // paddingTop: "20px",
+    textAlign: "center",
+    borderBottom: "1px solid rgb(224 224 224)",
+  },
+  btnedit: {
+    color: "#00a8ff",
+    // marginRight: "10px",
+    // borderRight : "1px solid ",
+    // borderRadiusRight: "0"
+  },
+  btndelete: {
+    color: "#00a8ff",
+    // borderLeft : "1px solid "
+  },
 }));
 const columns = [
     {
@@ -149,7 +174,7 @@ const columns = [
     {
         id: "score",
         label: "Score",
-        maxWidth: "20%",
+        maxWidth: "10%",
         fontWeight: "bold",
         backgroundColor: "white",
         color: "#2d3667",
@@ -167,30 +192,145 @@ const columns = [
       zIndex: 0,
   },
 ];
-const User = () => {
+const AllGames = () => {
     const [loading, setLoading] = useState(false);
     const classes = useStyle();
 
-    //Switch
-    const label = { inputProps: { 'aria-label': 'Switch demo' } };
-    //Switch
+  //Switch
+  const label = { inputProps: { "aria-label": "Switch demo" } };
+  //Switch
 
+  // Sample
 
-    // Sample
+  function createData(players, host, userid, score, reward) {
+    return { players, host, userid, score, reward };
+  }
 
-    function createData(players, host, userid, score, reward) {
-        return { players, host, userid, score, reward };
-    }
+  const rows = [
+    createData("John Smith", "ABC INDIA LTD", 9898098980, "", "GSTIN7563736"),
+    createData("John Smith", "ABC INDIA LTD", 9898098980, "", "GSTIN7563736"),
+    createData("John Smith", "ABC INDIA LTD", 9898098980, "", "GSTIN7563736"),
+    createData("John Smith", "ABC INDIA LTD", 9898098980, "", "GSTIN7563736"),
+    createData("John Smith", "ABC INDIA LTD", 9898098980, "", "GSTIN7563736"),
+  ];
 
-    const rows = [
-        createData('John Smith', 'ABC INDIA LTD' , 9898098980, '', 'GSTIN7563736'),
-        createData('John Smith', 'ABC INDIA LTD' , 9898098980, '', 'GSTIN7563736'),
-        createData('John Smith', 'ABC INDIA LTD', 9898098980, '', 'GSTIN7563736'),
-        createData('John Smith', 'ABC INDIA LTD', 9898098980, '', 'GSTIN7563736'),
-        createData('John Smith', 'ABC INDIA LTD', 9898098980, '', 'GSTIN7563736'),
-    ];
+  // Sample
 
-    // Sample
+  // return (
+  //   <>
+  //     <Paper elevation={3} className="paper" style={{ margin: "20px 20px" }}>
+  //       <strong
+  //         style={{ margin: "20px 10px", fontWeight: "500", padding: "10px" }}
+  //       >
+  //         Overview
+  //       </strong>
+  //       {loading ? (
+  //         <div className={classes.loading}>
+  //           <CircularProgress />{" "}
+  //         </div>
+  //       ) : (
+  //         <Table
+  //           stickyHeader
+  //           aria-label="sticky table"
+  //           className={classes.head}
+  //         >
+  //           <TableHead>
+  //             {columns.map((column) => (
+  //               <TableCell
+  //                 className={classes.root}
+  //                 key={column.id}
+  //                 align={column.align}
+  //                 style={{
+  //                   maxWidth: "20%",
+  //                   fontWeight: "bold",
+  //                   backgroundColor: "white",
+  //                   color: "rgb(45, 54, 103)",
+  //                   zIndex: "0",
+  //                   textAlign: "center",
+  //                   width: "20%",
+  //                 }}
+  //               >
+  //                 <center>{column.label}</center>
+  //               </TableCell>
+  //             ))}
+  //             <TableCell
+  //               style={{
+  //                 fontWeight: "bold",
+  //                 width: "25%",
+  //                 backgroundColor: "white",
+  //                 color: "#2d3667",
+  //               }}
+  //             >
+  //               <b style={{ paddingRight: "90px" }}>Action</b>
+  //             </TableCell>
+  //           </TableHead>
+  //           <TableBody>
+  //             {rows.map((row) => (
+  //               <TableRow
+  //                 key={row.name}
+  //                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+  //               >
+  //                 <TableCell
+  //                   component="th"
+  //                   scope="row"
+  //                   style={{
+  //                     width: "25%",
+  //                     backgroundColor: "white",
+  //                     color: "#2d3667",
+  //                   }}
+  //                 >
+  //                   <center>{row.players}</center>
+  //                 </TableCell>
+  //                 <TableCell
+  //                   component="th"
+  //                   scope="row"
+  //                   style={{
+  //                     width: "25%",
+  //                     backgroundColor: "white",
+  //                     color: "#2d3667",
+  //                   }}
+  //                 >
+  //                   <center>{row.host}</center>
+  //                 </TableCell>
+  //                 <TableCell
+  //                   component="th"
+  //                   scope="row"
+  //                   style={{
+  //                     width: "25%",
+  //                     backgroundColor: "white",
+  //                     color: "#2d3667",
+  //                   }}
+  //                 >
+  //                   <center>{row.userid}</center>
+  //                 </TableCell>
+  //                 <TableCell
+  //                   component="th"
+  //                   scope="row"
+  //                   style={{
+  //                     width: "25%",
+  //                     backgroundColor: "white",
+  //                     color: "#2d3667",
+  //                   }}
+  //                 >
+  //                   <center>
+  //                     <VisibilityIcon
+  //                       {...label}
+  //                       defaultChecked
+  //                       style={{ color: "skyblue" }}
+  //                     />
+  //                   </center>
+  //                 </TableCell>
+  //                 <TableCell
+  //                   component="th"
+  //                   scope="row"
+  //                   style={{
+  //                     width: "25%",
+  //                     backgroundColor: "white",
+  //                     color: "#2d3667",
+  //                   }}
+  //                 >
+  //                   <center>{row.reward}</center>
+  //                 </TableCell>
 
 
     return (
@@ -220,7 +360,7 @@ const User = () => {
                                         color: column.color,
                                         zIndex: column.zIndex,
                                         textAlign: "center",
-                                        width: "25%",
+                                        width: "20%",
                                     }}
                                 >
                                     <center>{column.label}</center>
@@ -229,12 +369,12 @@ const User = () => {
                             <TableCell
                                 style={{
                                     fontWeight: "bold",
-                                    width: "25%",
+                                    width: "20%",
                                     backgroundColor: "white",
                                     color: "#2d3667",
                                 }}
                             >
-                                <b style={{ paddingRight: "90px" }}>Action</b>
+                                <b style={{ paddingRight: "50px" }}>Action</b>
                             </TableCell>
                         </TableHead>
                         <TableBody>
@@ -245,7 +385,7 @@ const User = () => {
                                 >
                                     <TableCell component="th" scope="row" style={{
 
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -253,7 +393,7 @@ const User = () => {
                                         <center>{row.players}</center>
                                     </TableCell>
                                     <TableCell component="th" scope="row" style={{
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -261,7 +401,7 @@ const User = () => {
                                         <center>{row.host}</center>
                                     </TableCell>
                                     <TableCell component="th" scope="row" style={{
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -269,7 +409,7 @@ const User = () => {
                                         <center>{row.userid}</center>
                                     </TableCell>
                                     <TableCell component="th" scope="row" style={{
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -278,28 +418,25 @@ const User = () => {
                                             <VisibilityIcon {...label} defaultChecked style={{color: 'skyblue'}} />
                                         </center>
                                     </TableCell>
+
                                     <TableCell component="th" scope="row" style={{
-                                        width: "35%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
                                     }}>
-                                       <center>
-                                            <></>
-                                        </center>
-
+                                        <center>{row.reward}</center>
                                     </TableCell>
 
-
                                     <TableCell component="th" scope="row" style={{
-                                        width: "30%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
                                     }}>
                                         <center>
                                             {
-                                                <div className='Main' style={{ display: "flex", gap: "12px", cursor: "pointer"}}>
+                                                <div className='Main' style={{ display: "flex", gap: "12px", justifyContent:'center' , paddingRight:'45px', cursor: "pointer"}}>
                                                     <div className='bnt1'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 31.031 31.062">
                                                             <g id="Group_269" data-name="Group 269"  transform="translate(-1177.471 -568)">
@@ -322,10 +459,11 @@ const User = () => {
                         <Pagination count={10} variant="outlined" shape="rounded" />
                     </Stack>
                 </div> */}
-            </Paper>
+      </Paper>
+    </>
+  );
+};
 
-        </>
-    )
-}
+        
 
-export default User;
+export default AllGames;
