@@ -42,8 +42,8 @@ function Header() {
         <div className="profile">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
+            width="20"
+            height="20"
             fill="currentColor"
             class="bi bi-person"
             viewBox="0 0 16 16"
@@ -52,7 +52,7 @@ function Header() {
           </svg>
         </div>
         <div className="username">
-          <span>User Name</span>
+          <span className="user-name">Supriya Sandhyan</span>
         </div>
       </div>
     </div>

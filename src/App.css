@@ -1,9 +1,9 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: black;
-}
+} */
 
 .main-container {
   display: flex;
@@ -130,14 +130,19 @@ main {
 .header-main{
   display: grid;
   grid-template-columns: 4fr 4fr;
-  border: 1px gray;
+  border: 1px solid rgb(176, 174, 174);
   background-color: aliceblue;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
   width: 80vw;
-  padding: 20px;
+  padding: 10px;
 }
 .head1-title{
   width: 100px;
+    font-size: 20px;
+    text-align: end;
+    font-weight: 600;
 }
 .head2-content{  
   display: flex;
@@ -148,9 +153,9 @@ main {
 }
 .profile{
   padding: 5px;
-    border: 1px solid black;
-    border-radius: 25px;
-    width: 44px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 25px;
 }
 .row{
   display: flex;

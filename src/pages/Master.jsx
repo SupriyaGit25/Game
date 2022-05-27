@@ -4,7 +4,6 @@ import Header from '../components/Sidebar/Header'
 function Master() {
   return (
     <>
-    <Header/>
     <div className='title'>Master</div>
     </>
   )

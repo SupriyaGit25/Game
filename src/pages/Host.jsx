@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import "../App.css"
-import Header from '../components/Sidebar/Header';
 import {
     makeStyles,
     InputBase,
@@ -208,12 +207,6 @@ const Host = () => {
       };
   return (
     <>
-    
-    <div className="head1">
-      <div className="row" >
-        <Header className={`${classes.fontcolor}`}></Header>
-      </div>
-    </div>
     <Paper elevation={3} className="paper" style={{ margin: "auto", padding:"5px" }}>
       {loading ? (
         <div className={classes.loading}>
