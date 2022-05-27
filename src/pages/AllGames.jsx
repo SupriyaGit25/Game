@@ -149,7 +149,7 @@ const columns = [
     {
         id: "score",
         label: "Score",
-        maxWidth: "20%",
+        maxWidth: "10%",
         fontWeight: "bold",
         backgroundColor: "white",
         color: "#2d3667",
@@ -167,7 +167,7 @@ const columns = [
       zIndex: 0,
   },
 ];
-const User = () => {
+const AllGames = () => {
     const [loading, setLoading] = useState(false);
     const classes = useStyle();
 
@@ -220,7 +220,7 @@ const User = () => {
                                         color: column.color,
                                         zIndex: column.zIndex,
                                         textAlign: "center",
-                                        width: "25%",
+                                        width: "20%",
                                     }}
                                 >
                                     <center>{column.label}</center>
@@ -229,12 +229,12 @@ const User = () => {
                             <TableCell
                                 style={{
                                     fontWeight: "bold",
-                                    width: "25%",
+                                    width: "20%",
                                     backgroundColor: "white",
                                     color: "#2d3667",
                                 }}
                             >
-                                <b style={{ paddingRight: "90px" }}>Action</b>
+                                <b style={{ paddingRight: "50px" }}>Action</b>
                             </TableCell>
                         </TableHead>
                         <TableBody>
@@ -245,7 +245,7 @@ const User = () => {
                                 >
                                     <TableCell component="th" scope="row" style={{
 
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -253,7 +253,7 @@ const User = () => {
                                         <center>{row.players}</center>
                                     </TableCell>
                                     <TableCell component="th" scope="row" style={{
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -261,7 +261,7 @@ const User = () => {
                                         <center>{row.host}</center>
                                     </TableCell>
                                     <TableCell component="th" scope="row" style={{
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -269,7 +269,7 @@ const User = () => {
                                         <center>{row.userid}</center>
                                     </TableCell>
                                     <TableCell component="th" scope="row" style={{
-                                        width: "25%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
@@ -278,28 +278,25 @@ const User = () => {
                                             <VisibilityIcon {...label} defaultChecked style={{color: 'skyblue'}} />
                                         </center>
                                     </TableCell>
+
                                     <TableCell component="th" scope="row" style={{
-                                        width: "35%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
                                     }}>
-                                       <center>
-                                            <></>
-                                        </center>
-
+                                        <center>{row.reward}</center>
                                     </TableCell>
 
-
                                     <TableCell component="th" scope="row" style={{
-                                        width: "30%",
+                                        width: "20%",
                                         backgroundColor: "white",
                                         color: "#2d3667",
 
                                     }}>
                                         <center>
                                             {
-                                                <div className='Main' style={{ display: "flex", gap: "12px", cursor: "pointer"}}>
+                                                <div className='Main' style={{ display: "flex", gap: "12px", justifyContent:'center' , paddingRight:'45px', cursor: "pointer"}}>
                                                     <div className='bnt1'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 31.031 31.062">
                                                             <g id="Group_269" data-name="Group 269"  transform="translate(-1177.471 -568)">
@@ -328,4 +325,4 @@ const User = () => {
     )
 }
 
-export default User;
+export default AllGames;
